@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:newsapp/app/modules/auth/controller/auth_controller.dart';
-import 'package:newsapp/app/modules/detail/views/detail_view.dart';
 import 'package:newsapp/app/modules/home/controllers/home_controller.dart';
 import 'package:newsapp/app/modules/home/widgets/empty_result_widget.dart';
 import 'package:newsapp/app/modules/home/widgets/error_text_widget.dart';

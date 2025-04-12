@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:newsapp/app/utils/app_theme.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../model/news_model.dart';
@@ -108,12 +109,20 @@ class DetailPage extends StatelessWidget {
                       }
                     }
                   },
-                  child: const Text(
-                    'Read Full Article',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Colors.blueAccent,
-                      fontWeight: FontWeight.w600,
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      'Read Full Article',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: AppColors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),

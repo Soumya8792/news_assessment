@@ -101,16 +101,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      controller.signUp(
-                        _nameController.text,
-                        _emailController.text,
-                        _mobileController.text,
-                        _locationController.text,
-                        _passwordController.text,
-                        _confirmPasswordController.text,
-                      );
-                    },
+                    onPressed: controller.isLoading.value
+                        ? null
+                        : () {
+                            controller.signUp(
+                              _nameController.text,
+                              _emailController.text,
+                              _mobileController.text,
+                              _locationController.text,
+                              _passwordController.text,
+                              _confirmPasswordController.text,
+                            );
+                          },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -118,10 +120,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: const Text(
-                      "Sign Up",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
-                    ),
+                    child: controller.isLoading.value
+                        ? const SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : Text(
+                            "Sign Up",
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
                   ),
                 ),
                 const SizedBox(height: 20),

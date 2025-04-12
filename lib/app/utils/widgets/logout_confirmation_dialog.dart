@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:newsapp/app/api_servises/firebase_auth_api.dart';
+import 'package:newsapp/app/routes/app_routes.dart';
+import 'package:newsapp/app/utils/app_theme.dart';
 
 class LogoutConfirmationDialog extends StatelessWidget {
   final FirebaseAuthAPI service;
@@ -17,18 +19,25 @@ class LogoutConfirmationDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text("Cancel"),
+          child: const Text("Cancel",
+          style: TextStyle(
+            color: AppColors.primary,
+            fontWeight: FontWeight.w600
+          ),
+          ),
         ),
         ElevatedButton(
           onPressed: () {
             service.signOut();
-            Get.offAllNamed(
-                "/signin"); // Or AppRoutes.login if using a constant
+            Get.offAllNamed(AppRoutes.signin);
             Get.snackbar("Logout", "You have been logged out.");
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
-            foregroundColor: Colors.white,
+            backgroundColor: AppColors.primary,
+            foregroundColor: AppColors.background,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
           child: const Text("Logout"),
         ),

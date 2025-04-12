@@ -15,6 +15,7 @@ class HomeController extends GetxController {
 
   Rx<NewsModel?> newsModel = Rx<NewsModel?>(null);
   RxList<Articles> articles = <Articles>[].obs;
+  
 
   int currentPage = 1;
   final int pageSize = 20;

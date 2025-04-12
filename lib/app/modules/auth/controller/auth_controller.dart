@@ -58,7 +58,6 @@ class AuthController extends GetxController {
 
   Future<void> signUp(String name, String email, String mobileNo, String loc,
       String pass, String conPass) async {
-    // Validation
     if ([name, email, mobileNo, loc, pass, conPass]
         .any((field) => field.isEmpty)) {
       Get.snackbar("Error", "All fields are required");
@@ -88,13 +87,20 @@ class AuthController extends GetxController {
       return;
     }
 
-    final result = await authService.signUp(email, pass, name, loc, mobileNo);
+    try {
+      isLoading.value = true; 
+      final result = await authService.signUp(email, pass, name, loc, mobileNo);
 
-    if (result == null) {
-      Get.snackbar("Success", "Account created successfully");
-      Get.offAllNamed(AppRoutes.home);
-    } else {
-      Get.snackbar("Error", result.toString());
+      if (result == null) {
+        Get.snackbar("Success", "Account created successfully");
+        Get.offAllNamed(AppRoutes.home);
+      } else {
+        Get.snackbar("Error", result.toString());
+      }
+    } catch (e) {
+      Get.snackbar("Error", "Something went wrong");
+    } finally {
+      isLoading.value = false;
     }
   }
 
