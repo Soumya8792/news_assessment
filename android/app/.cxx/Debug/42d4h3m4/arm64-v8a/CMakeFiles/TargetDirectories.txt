@@ -1,0 +1,2 @@
+/Users/jhon/Downloads/newsapp/android/app/.cxx/Debug/42d4h3m4/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/jhon/Downloads/newsapp/android/app/.cxx/Debug/42d4h3m4/arm64-v8a/CMakeFiles/rebuild_cache.dir
